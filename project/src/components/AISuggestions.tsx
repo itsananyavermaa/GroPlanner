@@ -38,7 +38,7 @@ const AISuggestions = () => {
         settings: state.settings
       };
 
-      const response = await axios.post("http://localhost:5000/ai/plan", payload);
+      const response = await axios.post("https://groplanner-backend.onrender.com/ai/plan", payload);
       setPlan(response.data.schedule);
     } catch (error) {
       console.error("Error generating plan:", error);
