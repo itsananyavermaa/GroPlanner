@@ -25,7 +25,7 @@ const Calendar: React.FC = () => {
     if (!token) return;
 
     try {
-      const { data } = await axios.get('http://localhost:5000/auth/calendar/events', {
+      const { data } = await axios.get('https://groplanner-backend.onrender.com/auth/calendar/events', {
         headers: {
           'x-google-token': token,
         },
