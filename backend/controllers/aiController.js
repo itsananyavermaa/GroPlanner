@@ -9,15 +9,13 @@ const generatePlan = async (req, res) => {
     const prompt = `
 You are an AI scheduler with a ${aiPersonality} personality.
 My preferred work hours are from ${preferredWorkHours.start} to ${preferredWorkHours.end}.
-Please schedule the following tasks, placing a break every ${breakInterval} minutes.
-Avoid overlapping with these fixed events I already have today:
-${events.length > 0 ? events.map((e, i) => `${i + 1}. ${e.summary} from ${e.start} to ${e.end}`).join('\n') : 'None'}
+Please schedule the following tasks, placing a break every ${breakInterval} minutes:
+Also please give additional insights to make my day even more productive and how i can stay fit and healthy and feel good about myself
 
-Here are my tasks:
 ${tasks.map((t, i) => `${i + 1}. ${t.title} (${t.duration} mins)`).join('\n')}
-
-Also give additional insights to make my day even more productive and how I can stay fit, healthy, and feel good about myself.
 `;
+
+
     const response = await axios.post(
       'https://api.groq.com/openai/v1/chat/completions',
       {
