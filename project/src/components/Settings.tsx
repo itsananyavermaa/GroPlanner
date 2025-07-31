@@ -62,62 +62,62 @@ const Settings: React.FC = () => {
   };
 
   return (
-  <div className="p-6 max-w-6xl mx-auto bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen">
+  <div className="p-6 max-w-6xl mx-auto bg-gray-50 min-h-screen">
     <div className="max-w-3xl mx-auto">
-      <div className="mb-12 bg-white/80 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-blue-100/50 dark:border-gray-700 shadow-lg">
+      <div className="mb-12 bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
             <Save className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Settings</h2>
-            <p className="text-gray-600 dark:text-gray-400">Customize your scheduling preferences and AI behavior</p>
+            <h2 className="text-2xl font-bold text-gray-900">Settings</h2>
+            <p className="text-gray-600">Customize your scheduling preferences and AI behavior</p>
           </div>
         </div>
       </div>
 
       <div className="space-y-8">
         {/* Work Hours */}
-        <div className="bg-white/80 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-blue-100/50 dark:border-gray-700 shadow-lg">
+        <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 via-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-md">
+            <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center">
               <Clock className="w-4 h-4 text-white" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Work Hours</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Work Hours</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+              <label className="block text-sm font-medium text-gray-700 mb-3">
                 Start Time
               </label>
               <input
                 type="time"
                 value={settings.preferredWorkHours.start}
                 onChange={(e) => handleWorkHoursChange('start', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+              <label className="block text-sm font-medium text-gray-700 mb-3">
                 End Time
               </label>
               <input
                 type="time"
                 value={settings.preferredWorkHours.end}
                 onChange={(e) => handleWorkHoursChange('end', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 transition-colors"
               />
             </div>
           </div>
         </div>
 
         {/* AI Personality */}
-        <div className="bg-white/80 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-blue-100/50 dark:border-gray-700 shadow-lg">
+        <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
+            <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
               <User className="w-4 h-4 text-white" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">AI Personality</h3>
+            <h3 className="text-lg font-semibold text-gray-900">AI Personality</h3>
           </div>
           <div className="space-y-4">
             {[
@@ -132,13 +132,13 @@ const Settings: React.FC = () => {
                   value={option.value}
                   checked={settings.aiPersonality === option.value}
                   onChange={(e) => handleInputChange('aiPersonality', e.target.value)}
-                  className="w-4 h-4 mt-1 text-indigo-600 border-gray-300 dark:border-gray-600 focus:ring-indigo-500"
+                  className="w-4 h-4 mt-1 text-blue-600 border-gray-300 focus:ring-blue-500"
                 />
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-white group-hover:text-indigo-900 transition-colors">
+                  <p className="font-medium text-gray-900 group-hover:text-blue-900 transition-colors">
                     {option.label}
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{option.description}</p>
+                  <p className="text-sm text-gray-600 mt-1">{option.description}</p>
                 </div>
               </label>
             ))}
@@ -146,15 +146,15 @@ const Settings: React.FC = () => {
         </div>
 
         {/* Break Interval */}
-        <div className="bg-white/80 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 border border-blue-100/50 dark:border-gray-700 shadow-lg">
+        <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 via-teal-500 to-cyan-600 rounded-lg flex items-center justify-center shadow-md">
+            <div className="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center">
               <Clock className="w-4 h-4 text-white" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Break Preferences</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Break Preferences</h3>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+            <label className="block text-sm font-medium text-gray-700 mb-3">
               Break Interval (minutes)
             </label>
             <div className="flex items-start gap-4">
@@ -162,11 +162,11 @@ const Settings: React.FC = () => {
                 type="number"
                 value={settings.breakInterval}
                 onChange={(e) => handleInputChange('breakInterval', Number(e.target.value))}
-                className="w-24 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors"
+                className="w-24 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 transition-colors"
                 min="5"
                 max="60"
               />
-              <p className="text-sm text-gray-600 dark:text-gray-400 pt-3">
+              <p className="text-sm text-gray-600 pt-3">
                 Recommended break every {settings.breakInterval} minutes of work
               </p>
             </div>
@@ -177,7 +177,7 @@ const Settings: React.FC = () => {
         <div className="flex justify-end pt-4">
           <button
             onClick={handleSave}
-            className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-8 py-3 rounded-lg flex items-center gap-3 hover:from-indigo-700 hover:to-blue-700 transition-colors shadow-md font-medium"
+            className="bg-blue-600 text-white px-8 py-3 rounded-lg flex items-center gap-3 hover:bg-blue-700 transition-colors shadow-sm font-medium"
           >
             <Save className="w-4 h-4" />
             Save Settings
