@@ -65,7 +65,6 @@ const handleSyncGoogleCalendar = async () => {
     }
   } catch (error) {
     console.error('Error syncing Google Calendar:', error);
-    alert('Failed to sync calendar. Try again.');
   }
 };
 
