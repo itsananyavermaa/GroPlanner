@@ -112,68 +112,61 @@ const AISuggestions = () => {
         </div>
       )}
 
-      {/* Results Section */}
+      {/* Results Section - Single Box */}
       {plan.length > 0 && !loading && (
-        <div className="space-y-8">
+        <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
           {/* Results Header */}
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-              <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-900">Your Schedule</h2>
-              <p className="text-sm text-gray-600">Smart planning for maximum productivity</p>
+          <div className="p-6 border-b border-gray-200">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Your Schedule</h2>
+                <p className="text-sm text-gray-600">Smart planning for maximum productivity</p>
+              </div>
             </div>
           </div>
 
-          {/* Schedule Items */}
-          <div className="space-y-3">
-            {plan.map((item, index) => (
-              <div
-                key={index}
-                className="group bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200"
-              >
-                <div className="p-5 flex items-start gap-4">
-                  {/* Time Badge */}
-                  <div className="flex-shrink-0 pt-1">
-                    <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 font-medium rounded-full text-sm border border-blue-100">
-                      {item.time}
-                    </span>
-                  </div>
+          {/* Schedule Content */}
+          <div className="p-6">
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="space-y-4">
+                {plan.map((item, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    {/* Time Badge */}
+                    <div className="flex-shrink-0">
+                      <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 font-medium rounded-full text-sm border border-blue-100">
+                        {item.time}
+                      </span>
+                    </div>
 
-                  {/* Task Content */}
-                  <div className="flex-1 min-w-0 max-w-full">
-                    <div className="bg-gray-50 text-gray-900 text-sm font-medium px-4 py-2 rounded-lg border border-gray-200 w-full break-words whitespace-pre-wrap overflow-hidden">
-                      {item.task}
+                    {/* Task Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="text-gray-900 text-sm font-medium break-words">
+                        {item.task}
+                      </div>
                     </div>
                   </div>
-
-                  {/* Action Button */}
-                  <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    <button className="p-2 text-gray-400 hover:text-blue-600 rounded hover:bg-blue-50 transition-colors duration-200">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
           {/* Footer Stats */}
-          <div className="pt-6 border-t border-gray-200">
-            <div className="flex items-center justify-center gap-8 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span>{plan.length} items scheduled</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span>Optimized for productivity</span>
+          <div className="px-6 pb-6">
+            <div className="pt-4 border-t border-gray-200">
+              <div className="flex items-center justify-center gap-8 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span>{plan.length} items scheduled</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span>Optimized for productivity</span>
+                </div>
               </div>
             </div>
           </div>
