@@ -87,29 +87,16 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen">
-    {/* Enhanced futuristic background elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/8 to-cyan-400/8 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-400/8 to-pink-400/8 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-3/4 left-1/3 w-64 h-64 bg-gradient-to-br from-indigo-400/8 to-blue-400/8 rounded-full blur-2xl animate-pulse delay-500"></div>
-        
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(59,130,246,0.04)_1px,transparent_0)] bg-[length:40px_40px]"></div>
-      </div>
-
+    <div className="p-6 max-w-6xl mx-auto bg-gray-50 min-h-screen">
       <div className="relative max-w-7xl mx-auto">
-        {/* Header with enhanced glassmorphism effect */}
-        <div className="mb-8 backdrop-blur-xl bg-white/60 rounded-2xl p-8 border border-white/20 shadow-2xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/3 via-transparent to-purple-500/3 rounded-2xl"></div>
-          
-          <div className="relative flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 via-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl"></div>
-              <Sparkles className="w-6 h-6 text-white relative z-10" />
+        {/* Header */}
+        <div className="mb-8 bg-white rounded-lg p-8 border border-gray-200 shadow-sm">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+              <Sparkles className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h2 className="text-3xl font-semibold bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 bg-clip-text text-transparent mb-2">
+              <h2 className="text-3xl font-semibold text-gray-900 mb-2">
                 Hey! Ready to tackle your day?
               </h2>
               <p className="text-gray-600">
@@ -118,76 +105,66 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
           
-          {/* Enhanced progress bar */}
-          <div className="w-full bg-gray-100/50 rounded-full h-2 overflow-hidden backdrop-blur-sm border border-white/30">
+          {/* Progress bar */}
+          <div className="w-full bg-gray-200 rounded-full h-2">
             <div 
-              className="h-full bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 rounded-full transition-all duration-700 ease-out relative overflow-hidden"
+              className="h-full bg-blue-600 rounded-full transition-all duration-300"
               style={{ width: `${Math.round((completedTasks.length / todayTasks.length) * 100) || 0}%` }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/30 to-transparent animate-pulse"></div>
-            </div>
+            />
           </div>
           <p className="text-xs text-gray-500 mt-2">Daily Progress</p>
         </div>
 
-        {/* Enhanced Stats Cards with different colors */}
+        {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {/* Total Tasks - Blue/Cyan theme */}
-          <div className="group bg-white/70 backdrop-blur-xl rounded-xl p-6 border border-blue-200/30 hover:border-blue-300/50 transition-all duration-300 shadow-xl shadow-blue-500/10 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-xl"></div>
-            <div className="relative flex items-center justify-between">
+          {/* Total Tasks */}
+          <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+            <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600 mb-1">Total Tasks</p>
-                <p className="text-3xl font-semibold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">{todayTasks.length}</p>
-                <div className="w-8 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mt-2"></div>
+                <p className="text-3xl font-semibold text-gray-900">{todayTasks.length}</p>
               </div>
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                <CheckCircle className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <CheckCircle className="w-5 h-5 text-blue-600" />
               </div>
             </div>
           </div>
 
-          {/* Completed - Purple/Pink theme */}
-          <div className="group bg-white/70 backdrop-blur-xl rounded-xl p-6 border border-purple-200/30 hover:border-purple-300/50 transition-all duration-300 shadow-xl shadow-purple-500/10 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-xl"></div>
-            <div className="relative flex items-center justify-between">
+          {/* Completed */}
+          <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+            <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600 mb-1">Completed</p>
-                <p className="text-3xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{completedTasks.length}</p>
-                <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-2"></div>
+                <p className="text-3xl font-semibold text-gray-900">{completedTasks.length}</p>
               </div>
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25">
-                <CheckCircle className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <CheckCircle className="w-5 h-5 text-green-600" />
               </div>
             </div>
           </div>
 
-          {/* High Priority - Orange/Red theme */}
-          <div className="group bg-white/70 backdrop-blur-xl rounded-xl p-6 border border-orange-200/30 hover:border-orange-300/50 transition-all duration-300 shadow-xl shadow-orange-500/10 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 rounded-xl"></div>
-            <div className="relative flex items-center justify-between">
+          {/* High Priority */}
+          <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+            <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600 mb-1">High Priority</p>
-                <p className="text-3xl font-semibold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">{highPriorityTasks.length}</p>
-                <div className="w-8 h-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mt-2"></div>
+                <p className="text-3xl font-semibold text-gray-900">{highPriorityTasks.length}</p>
               </div>
-              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/25">
-                <AlertCircle className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                <AlertCircle className="w-5 h-5 text-red-600" />
               </div>
             </div>
           </div>
 
-          {/* Free Time - Green/Emerald theme */}
-          <div className="group bg-white/70 backdrop-blur-xl rounded-xl p-6 border border-green-200/30 hover:border-green-300/50 transition-all duration-300 shadow-xl shadow-green-500/10 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 rounded-xl"></div>
-            <div className="relative flex items-center justify-between">
+          {/* Free Time */}
+          <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+            <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600 mb-1">Free Time</p>
-                <p className="text-3xl font-semibold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">{Math.floor(freeTime / 60)}h {freeTime % 60}m</p>
-                <div className="w-8 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mt-2"></div>
+                <p className="text-3xl font-semibold text-gray-900">{Math.floor(freeTime / 60)}h {freeTime % 60}m</p>
               </div>
-              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/25">
-                <Clock className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                <Clock className="w-5 h-5 text-indigo-600" />
               </div>
             </div>
           </div>
@@ -196,10 +173,9 @@ const Dashboard: React.FC = () => {
         <div className="mb-8 flex justify-center">
           <button
             onClick={handlePlanMyDay}
-            className="px-8 py-3 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 rounded-xl font-medium text-white hover:from-blue-600 hover:via-cyan-600 hover:to-blue-700 transition-all duration-200 shadow-lg shadow-blue-500/25 relative overflow-hidden backdrop-blur-sm"
+            className="px-8 py-3 bg-blue-600 rounded-lg font-medium text-white hover:bg-blue-700 transition-colors duration-200 shadow-sm"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent animate-pulse"></div>
-            <div className="relative flex items-center gap-3">
+            <div className="flex items-center gap-3">
               <Sparkles className="w-5 h-5" />
               <span>Plan My Day with AI</span>
             </div>
@@ -209,35 +185,35 @@ const Dashboard: React.FC = () => {
         {/* Content Sections */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Today's Tasks */}
-          <div className="bg-white/70 backdrop-blur-xl rounded-xl p-6 border border-white/20 shadow-xl">
+          <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                <CheckCircle className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <CheckCircle className="w-5 h-5 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Today's Tasks</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Today's Tasks</h3>
             </div>
             <div className="space-y-3">
               {pendingTasks.slice(0, 5).map((task) => (
                 <div 
                   key={task.id} 
-                  className="group bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-white/30 hover:border-blue-200/50 transition-all duration-200 shadow-lg"
+                  className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-gray-300 transition-colors duration-200"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className={`w-3 h-3 rounded-full ${
-                        task.priority === 'high' ? 'bg-gradient-to-r from-orange-500 to-red-500 shadow-lg shadow-orange-500/25' : 
-                        task.priority === 'medium' ? 'bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg shadow-purple-500/25' : 
-                        'bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/25'
+                        task.priority === 'high' ? 'bg-red-500' : 
+                        task.priority === 'medium' ? 'bg-yellow-500' : 
+                        'bg-blue-500'
                       }`} />
                       <div>
-                        <p className="font-medium text-gray-800">{task.title}</p>
+                        <p className="font-medium text-gray-900">{task.title}</p>
                         <p className="text-sm text-gray-600">{task.duration} min • {task.category}</p>
                       </div>
                     </div>
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${
-                      task.priority === 'high' ? 'bg-orange-100/80 text-orange-700 border border-orange-200/50' :
-                      task.priority === 'medium' ? 'bg-purple-100/80 text-purple-700 border border-purple-200/50' :
-                      'bg-blue-100/80 text-blue-700 border border-blue-200/50'
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      task.priority === 'high' ? 'bg-red-100 text-red-700' :
+                      task.priority === 'medium' ? 'bg-yellow-100 text-yellow-700' :
+                      'bg-blue-100 text-blue-700'
                     }`}>
                       {task.priority}
                     </span>
@@ -248,12 +224,12 @@ const Dashboard: React.FC = () => {
           </div>
 
           {/* Upcoming Events */}
-          <div className="bg-white/70 backdrop-blur-xl rounded-xl p-6 border border-white/20 shadow-xl">
+          <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25">
-                <Clock className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
+                <Clock className="w-5 h-5 text-indigo-600" />
               </div>
-              <h3 className="text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Upcoming Events</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Upcoming Events</h3>
             </div>
             <div className="space-y-3">
               {state.events
@@ -263,15 +239,15 @@ const Dashboard: React.FC = () => {
                 .map((event) => (
                 <div 
                   key={event.id} 
-                  className="group bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-white/30 hover:border-purple-200/50 transition-all duration-200 shadow-lg"
+                  className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-gray-300 transition-colors duration-200"
                 >
                   <div className="flex items-center gap-3">
                     <div 
-                      className="w-3 h-3 rounded-full shadow-lg" 
+                      className="w-3 h-3 rounded-full" 
                       style={{ backgroundColor: event.color || '#3B82F6' }} 
                     />
                     <div>
-                      <p className="font-medium text-gray-800">{event.title}</p>
+                      <p className="font-medium text-gray-900">{event.title}</p>
                       <p className="text-sm text-gray-600">
                         {new Date(event.start).toLocaleDateString(undefined, {
                           weekday: 'short',
@@ -292,53 +268,45 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Enhanced Productivity Insights */}
-        <div className="mt-8 bg-white/70 backdrop-blur-xl rounded-xl p-8 border border-white/20 shadow-xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/3 via-transparent to-purple-500/3 rounded-xl"></div>
-          
-          <div className="relative flex items-center gap-4 mb-6">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-cyan-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-              <TrendingUp className="w-6 h-6 text-white" />
+        {/* Productivity Insights */}
+        <div className="mt-8 bg-white rounded-lg p-8 border border-gray-200 shadow-sm">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+              <TrendingUp className="w-6 h-6 text-blue-600" />
             </div>
-            <h3 className="text-2xl font-semibold bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-semibold text-gray-900">
               Productivity Insights
             </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-white/30 shadow-lg">
-              <p className="text-4xl font-semibold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
+            <div className="text-center p-6 bg-gray-50 rounded-lg border border-gray-200">
+              <p className="text-4xl font-semibold text-gray-900 mb-2">
                 {Math.round((completedTasks.length / todayTasks.length) * 100) || 0}%
               </p>
-              <p className="text-gray-700 font-medium">Completion Rate</p>
-              <div className="w-full bg-gray-100/50 rounded-full h-2 mt-3 backdrop-blur-sm border border-white/30">
+              <p className="text-gray-700 font-medium mb-3">Completion Rate</p>
+              <div className="w-full bg-gray-200 rounded-full h-2">
                 <div 
-                  className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all duration-500 relative overflow-hidden"
+                  className="h-full bg-blue-600 rounded-full transition-all duration-300"
                   style={{ width: `${Math.round((completedTasks.length / todayTasks.length) * 100) || 0}%` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/30 to-transparent animate-pulse"></div>
-                </div>
+                />
               </div>
             </div>
-            <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-white/30 shadow-lg">
-              <p className="text-4xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+            <div className="text-center p-6 bg-gray-50 rounded-lg border border-gray-200">
+              <p className="text-4xl font-semibold text-gray-900 mb-2">
                 {Math.floor(totalDuration / 60)}h {totalDuration % 60}m
               </p>
-              <p className="text-gray-700 font-medium">Planned Work</p>
-              <div className="w-full bg-gray-100/50 rounded-full h-2 mt-3 backdrop-blur-sm border border-white/30">
-                <div className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/30 to-transparent animate-pulse"></div>
-                </div>
+              <p className="text-gray-700 font-medium mb-3">Planned Work</p>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="h-full bg-indigo-600 rounded-full" style={{ width: '75%' }} />
               </div>
             </div>
-            <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-white/30 shadow-lg">
-              <p className="text-4xl font-semibold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">
+            <div className="text-center p-6 bg-gray-50 rounded-lg border border-gray-200">
+              <p className="text-4xl font-semibold text-gray-900 mb-2">
                 {state.tasks.filter(t => t.category === 'work').length}
               </p>
-              <p className="text-gray-700 font-medium">Work Tasks</p>
-              <div className="w-full bg-gray-100/50 rounded-full h-2 mt-3 backdrop-blur-sm border border-white/30">
-                <div className="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/30 to-transparent animate-pulse"></div>
-                </div>
+              <p className="text-gray-700 font-medium mb-3">Work Tasks</p>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="h-full bg-green-600 rounded-full" style={{ width: '60%' }} />
               </div>
             </div>
           </div>
